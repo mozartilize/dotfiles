@@ -22,7 +22,7 @@ set $menu j4-dmenu-desktop --dmenu='bemenu-run -i'
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/wallpaper1_large.jpg fill
 #
 # Example configuration:
 #
@@ -214,14 +214,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
@@ -229,8 +222,9 @@ include /etc/sway/config.d/*
 focus_follows_mouse no
 workspace_layout tabbed
 hide_edge_borders both
-# seat seat0 xcursor_theme Adwaita 16
+#seat seat0 xcursor_theme Adwaita 24
 
 exec xrdb -load ~/.Xresources
 exec mako --default-timeout 3500
 exec /bin/zsh -c 'if [[ ! -a $SWAYSOCK.wob ]]; then mkfifo $SWAYSOCK.wob; fi && tail -f $SWAYSOCK.wob | wob'
+exec gammastep-indicator
