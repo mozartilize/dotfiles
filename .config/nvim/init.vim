@@ -53,7 +53,7 @@ let g:fzf_preview_window = 'right:60%'
 
 nnoremap <C-p> :<C-u>FZF<CR>
 inoremap <C-c> <ESC>
-nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
+" nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
 imap <C-k> <esc>O
 imap <C-j> <esc>o
 nnoremap Q <Nop>
