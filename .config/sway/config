@@ -17,7 +17,7 @@ set $right l
 set $term tilix
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu j4-dmenu-desktop --dmenu='bemenu-run -i'
+set $menu "rofi -show run -modi run,drun,ssh"
 
 ### Output configuration
 #
@@ -58,7 +58,7 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input "1739:0:Synaptics_TM3418-002" {
        dwt enabled
        tap enabled
        # natural_scroll enabled
@@ -224,7 +224,12 @@ workspace_layout tabbed
 hide_edge_borders both
 #seat seat0 xcursor_theme Adwaita 24
 
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 exec xrdb -load ~/.Xresources
 exec mako --default-timeout 3500
 exec /bin/zsh -c 'if [[ ! -a $SWAYSOCK.wob ]]; then mkfifo $SWAYSOCK.wob; fi && tail -f $SWAYSOCK.wob | wob'
+exec /usr/lib/geoclue-2.0/demos/agent
 exec gammastep-indicator

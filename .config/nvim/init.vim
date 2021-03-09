@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer' }
+" Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer' }
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -11,6 +11,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'joshdick/onedark.vim'
+Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 set bg=dark
@@ -40,7 +42,8 @@ colorscheme onedark
 let g:onedark_termcolors=256
 
 let g:loaded_python_provider = 0 " disable python2
-let g:python3_host_prog = '/usr/bin/python3'
+let g:loaded_python3_provider = 0 " disable python3
+" let g:python3_host_prog = '/usr/bin/python3'
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -54,6 +57,7 @@ nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
 imap <C-k> <esc>O
 imap <C-j> <esc>o
 nnoremap Q <Nop>
+map <C-\> :NERDTreeToggle<CR>
 
 set wildignore+=*/node_modules/*     " MacOSX/Linux
 let g:ale_fixers = {
@@ -69,6 +73,7 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 
 set lazyredraw
+set hidden
 
 " Preferences for various file formats
 autocmd FileType c setlocal noet ts=8 sw=8 tw=80
