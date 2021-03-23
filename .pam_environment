@@ -1,0 +1,6 @@
+PYENV_ROOT DEFAULT=@{HOME}/.pyenv
+PATH DEFAULT=@{HOME}/.poetry/bin:@{HOME}/.yarn/bin:${PYENV_ROOT}/bin:@{HOME}/.local/bin:${PATH}
+SSH_AUTH_SOCK DEFAULT=${XDG_RUNTIME_DIR}/ssh-agent.socket
+EDITOR DEFAULT=/usr/bin/nvim
+MOZ_ENABLE_WAYLAND DEFAULT=1
+QT_QPA_PLATFORM DEFAULT=wayland;xcb
