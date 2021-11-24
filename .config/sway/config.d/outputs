@@ -1,0 +1,6 @@
+output HDMI-A-2 transform 90
+output DP-1 pos 1920 684
+output HDMI-A-2 pos 3840 0
+output DP-1 bg ~/Pictures/Wallpapers/clay-banks-u27Rrbs9Dwc-unsplash.jpg fill
+output HDMI-A-2 bg ~/Pictures/Wallpapers/matt-wang-T7K0oKILrf0-unsplash.jpg fill
+

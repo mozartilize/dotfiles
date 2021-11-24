@@ -1,0 +1,7 @@
+max-history=10
+output=DP-1
+group-by=app-name,summary,actionable,urgency
+default-timeout=15000
+
+[mode=dnd]
+invisible=1
