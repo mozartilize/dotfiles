@@ -18,7 +18,7 @@ set $term footclient
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu "rofi -show run -modi run,drun,ssh"
-set $lock_cmd "swaylock --screenshots --clock --timestr %H:%M --indicator --indicator-thickness 5 --effect-blur 8x5 --fade-in .35"
+set $lock_cmd "swaylock -f --screenshots --clock --timestr %H:%M --indicator --indicator-thickness 5 --effect-blur 8x5 --fade-in .35"
 
 font pango:Hack 10px
 
@@ -89,7 +89,7 @@ input "1739:0:Synaptics_TM3418-002" {
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-    bindsym Ctrl+Mod1+l exec $lock_cmd
+    bindsym Ctrl+Mod1+l exec "$lock_cmd; sleep 1; pkill -USR1 swayidle"
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && /bin/zsh -c 'if (($(pamixer --get-volume) > 100)); then echo 100; else echo $(pamixer --get-volume); fi' > $SWAYSOCK.wob
@@ -218,6 +218,16 @@ bindsym $mod+r mode "resize"
 # Mako
 bindsym $mod+Shift+d exec makoctl dismiss -a
 
+for_window [app_id="firefox" title="Pushbullet"] floating enable
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="mpv"] floating enable
+
+# Brave, chrome, chromium
+for_window [title="Picture-in-picture"] floating enable
+
 #
 # Status Bar:
 #
@@ -245,3 +255,4 @@ exec xrdb -load ~/.Xresources
 exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
 exec gammastep-indicator
 exec foot -s
+exec pactl set-card-profile alsa_card.pci-0000_00_1f.3 pro-audio
