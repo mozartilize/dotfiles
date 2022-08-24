@@ -18,7 +18,7 @@ set $term footclient
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu "rofi -show run -modi run,drun,ssh"
-set $lock_cmd "swaylock -f --screenshots --clock --timestr %H:%M --indicator --indicator-thickness 5 --effect-blur 8x5 --fade-in .35"
+set $lock_cmd "~/.config/sway/scripts/lock"
 
 font pango:Hack 10px
 
@@ -39,8 +39,8 @@ font pango:Hack 10px
 #
 exec swayidle -w \
          timeout 300 $lock_cmd \
-         timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
+         timeout 600 'swaymsg "output * power off"' \
+              resume 'swaymsg "output * power on"' \
          before-sleep $lock_cmd
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -89,7 +89,7 @@ input "1739:0:Synaptics_TM3418-002" {
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-    bindsym Ctrl+Mod1+l exec "$lock_cmd; sleep 1; pkill -USR1 swayidle"
+    bindsym Ctrl+Mod1+l exec "$lock_cmd"
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && /bin/zsh -c 'if (($(pamixer --get-volume) > 100)); then echo 100; else echo $(pamixer --get-volume); fi' > $SWAYSOCK.wob
@@ -153,6 +153,9 @@ input "1739:0:Synaptics_TM3418-002" {
     bindsym $mod+Shift+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    bindsym Ctrl+Shift+Mod1+Left move workspace to output left
+    bindsym Ctrl+Shift+Mod1+Right move workspace to output right
+
 #
 # Layout stuff:
 #
@@ -245,7 +248,7 @@ hide_edge_borders both
 default_border pixel
 default_floating_border pixel
 
-#seat seat0 xcursor_theme Adwaita 24
+seat seat0 xcursor_theme Bibata-Modern-Classic 22
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
@@ -255,4 +258,3 @@ exec xrdb -load ~/.Xresources
 exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
 exec gammastep-indicator
 exec foot -s
-exec pactl set-card-profile alsa_card.pci-0000_00_1f.3 pro-audio

@@ -31,6 +31,7 @@
         "pulseaudio",
         "temperature",
         // "custom/keyboard-layout",
+        // "custom/notification",
         "battery",
         "tray",
         "clock#date",
@@ -122,7 +123,7 @@
     },
 
     "pulseaudio": {
-        "scroll-step": 5,
+        "scroll-step": 2,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
         "format-muted": "婢 0%",
@@ -171,5 +172,21 @@
             "activated": " ",
             "deactivated": " "
         }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": " ",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     }
 }
