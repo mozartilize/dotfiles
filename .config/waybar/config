@@ -16,7 +16,7 @@
     "position": "bottom",
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 28,
+    //"height": 30,
 
     "modules-left": [
         "sway/workspaces",
@@ -33,8 +33,8 @@
         // "custom/keyboard-layout",
         // "custom/notification",
         "battery",
-        "tray",
         "clock",
+        "tray",
         "idle_inhibitor"
     ],
 
@@ -71,7 +71,7 @@
 
     "clock": {
       "interval": 1,
-      "format": "<span background='#cc6666'>  </span> {:%a, %d %b | %H:%M} ", // Icon: calendar-alt
+      "format": "<span line_height='1.5' background='#cc6666'>  </span> {:%a, %d %b | %H:%M} ", // Icon: calendar-alt
       "tooltip": false
     },
 
@@ -105,9 +105,9 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": "<span background='#f0c674'> 直</span> {essid} ({signalStrength}%) ", // Icon: wifi
-        "format-ethernet": "<span background='#f0c674'>  </span> {ifname}: {ipaddr}/{cidr} ", // Icon: ethernet
-        "format-disconnected": "<span background='#f0c674'> ⚠ <span> Disconnected ",
+        "format-wifi": "<span line_height='1.5' background='#f0c674'> 直 </span> {essid} ({signalStrength}%) ", // Icon: wifi
+        "format-ethernet": "<span line_height='1.5' background='#f0c674'>   </span> {ifname}: {ipaddr}/{cidr} ", // Icon: ethernet
+        "format-disconnected": "<span line_height='1.5' background='#f0c674'> ⚠  <span> Disconnected ",
         "tooltip-format": "{ifname}: {ipaddr}"
     },
 
@@ -123,9 +123,9 @@
 
     "pulseaudio": {
         "scroll-step": 2,
-        "format": "<span background='#de935f'> {icon} </span> {volume}% ",
-        "format-bluetooth": "<span background='#de935f'> {icon} </span> {volume}% ",
-        "format-muted": "<span background='#de935f'> 婢 </span> 0% ",
+        "format": "<span line_height='1.5' background='#de935f'> {icon} </span> {volume}% ",
+        "format-bluetooth": "<span line_height='1.5' background='#de935f'> {icon} </span> {volume}% ",
+        "format-muted": "<span line_height='1.5' background='#de935f'> 婢 </span> 0% ",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
@@ -142,7 +142,7 @@
       "critical-threshold": 70,
       "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
       "interval": 2,
-      "format": "<span background='#8abeb7'> {icon} </span> {temperatureC}°C ",
+      "format": "<span line_height='1.5' background='#8abeb7'> {icon} </span> {temperatureC}°C ",
       "format-icons": [
           "", // Icon: temperature-empty
           "", // Icon: temperature-quarter
@@ -155,7 +155,7 @@
 
     "tray": {
         "icon-size": 16,
-        "spacing": 10
+        "spacing": 8
     },
     "wlr/taskbar": {
         "format": "{icon} {app_id}",

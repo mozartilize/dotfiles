@@ -123,6 +123,7 @@ input "1739:0:Synaptics_TM3418-002" {
     bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+    bindsym Print exec grim
 #
 # Moving around:
 #
@@ -283,6 +284,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 exec xrdb -load ~/.Xresources
+exec /usr/lib/geoclue-2.0/demos/agent
 exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
 exec gammastep-indicator
 exec foot -s

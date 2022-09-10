@@ -52,8 +52,16 @@
     color: #e0e0e0;
     font-family: "Hack Nerd Font";
     font-size: 11px;
-    font-stretch: condensed;
 }
+
+.modules-left {
+    margin-left: 3px;
+}
+
+.modules-right {
+    margin-right: 3px;
+}
+
 
 /* Each module */
 #battery,
@@ -65,10 +73,9 @@
 #network,
 #pulseaudio,
 #temperature,
-#tray,
 #taskbar,
 #workspaces {
-    margin: 5px;
+    margin: 6px 3px;
     background-color: #b4b7b4;
     border-color: #373b41;
     color: #1d1f21;
@@ -183,6 +190,7 @@
 #workspaces button {
     /* To compensate for the top border and still have vertical centering */
     color: #1d1f21;
+    padding: 0 2px;
 }
 
 #workspaces button:hover {
@@ -204,8 +212,10 @@
 }
 
 #taskbar button {
-    padding: 0 3px;
+    padding: 0 5px;
     color: #1d1f21;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 #taskbar button:hover {
