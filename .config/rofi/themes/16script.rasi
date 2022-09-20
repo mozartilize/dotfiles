@@ -1,0 +1,134 @@
+* {
+    background: #282a2e;
+    foreground: #eeffff;
+    active-background: #4a4a4a;
+    active-foreground: @foreground;
+    normal-background: @background;
+    normal-foreground: @foreground;
+    urgent-background: #f07178;
+    urgent-foreground: @foreground;
+
+    alternate-active-background: @background;
+    alternate-active-foreground: @foreground;
+    alternate-normal-background: @background;
+    alternate-normal-foreground: @foreground;
+    alternate-urgent-background: @background;
+    alternate-urgent-foreground: @foreground;
+
+    selected-active-background: #f07178;
+    selected-active-foreground: @foreground;
+    selected-normal-background: #4a4a4a;
+    selected-normal-foreground: @foreground;
+    selected-urgent-background: #ffcb6b;
+    selected-urgent-foreground: @foreground;
+
+    background-color: @background;
+    border-color: #c5c8c6;
+    spacing: 0;
+    color: @foreground;
+    font: "monospace 10";
+}
+
+window {
+    border: 4px;
+    padding: 2ch;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+}
+
+message {
+    border: 2px 0px 0px;
+    border-color: @border-color;
+    padding: 1px;
+}
+
+listview {
+    fixed-height: 0;
+    border: 2px 0px 0px;
+    border-color: @border-color;
+    spacing: 2px;
+    scrollbar: true;
+    padding: 2px 0px 0px;
+}
+
+scrollbar {
+    background-color: #373b41;
+    handle-color: #969896;
+}
+
+element {
+    border: 0;
+    padding: 2px;
+}
+
+element.normal.normal {
+    background-color: @normal-background;
+}
+
+element.normal.urgent {
+    background-color: @urgent-background;
+}
+
+element.normal.active {
+    background-color: @active-background;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+}
+
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+}
+
+element.selected.active {
+    background-color: @selected-active-background;
+}
+
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+}
+
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+}
+
+element.alternate.active {
+    background-color: @alternate-active-background;
+}
+
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-width: 8px;
+    padding: 0;
+}
+
+sidebar {
+    border: 2px 0px 0px;
+    border-color: @border-color;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+}
+
+inputbar {
+    spacing: 5;
+    padding: 1px;
+}
+
+case-indicator {
+    spacing: 0;
+}
+
+entry {
+    spacing: 1px;
+}
+
+prompt {
+    spacing: 0;
+}

@@ -3,5 +3,14 @@ output=DP-1
 group-by=app-name,summary,actionable,urgency
 default-timeout=15000
 
+# colors
+background-color=#282a2e
+border-color=#b5bd68
+
+border-size=4
+max-icon-size=48
+outer-margin=50,30,0,0
+padding=10
+
 [mode=dnd]
 invisible=1

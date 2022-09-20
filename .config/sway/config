@@ -11,7 +11,7 @@ set $base03 #969896
 set $base04 #b4b7b4
 set $base05 #c5c8c6
 set $base06 #e0e0e0
-set $base07 #ffffff
+set $base07 #eeffff
 set $base08 #cc6666
 set $base09 #de935f
 set $base0a #f0c674
