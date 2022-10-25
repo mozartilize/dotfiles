@@ -1,5 +1,5 @@
 #!/bin/bash
 
-lock_cmd="swaylock -f --indicator-thickness 5 --image DP-1:/tmp/DP-1_lock.jpg --image HDMI-A-2:/tmp/HDMI-A-2_lock.jpg"
+lock_cmd="swaylock -f --indicator-thickness 5 $(swaymsg -t get_outputs --raw | jq '.[].name' | xargs -I{} echo -n '--image {}:/tmp/{}_lock.jpg ')"
 
 swaymsg -t get_outputs --raw | jq '.[].name' | xargs -P2 -I {} bash -c "grim -o {} -c - | convert - -filter Gaussian -scale 10% -resize 1000% /tmp/{}_lock.jpg" && $lock_cmd
