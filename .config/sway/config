@@ -247,11 +247,12 @@ bindsym $mod+r mode "resize"
 # Mako
 bindsym $mod+Shift+d exec makoctl dismiss -a
 
-for_window [app_id="firefox" title="Pushbullet"] floating enable
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
-for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
-for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
-for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="firefox*" title="Pushbullet"] floating enable
+for_window [app_id="firefox*" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox*" title="Picture-in-Picture"] floating enable
+for_window [app_id="firefox*" title="Pushbullet – Mozilla Firefox"] floating enable
+for_window [app_id="firefox*" title="About Mozilla Firefox"] floating enable
+for_window [app_id="firefox*" title="Developer Tools*"] floating enable
 for_window [app_id="mpv"] floating enable
 
 # Brave, chrome, chromium
@@ -277,7 +278,7 @@ smart_borders no_gaps
 smart_gaps on
 gaps inner 15
 
-seat seat0 xcursor_theme Bibata-Modern-Classic 22
+seat seat0 xcursor_theme Bibata-Modern-Ice 22
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK DOCKER_HOST
 exec hash dbus-update-activation-environment 2>/dev/null && \

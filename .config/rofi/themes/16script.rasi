@@ -34,6 +34,12 @@ window {
     padding: 2ch;
 }
 
+@media ( min-width: 960px ) {
+window {
+    width: 600px;
+}
+}
+
 mainbox {
     border: 0;
     padding: 0;
@@ -54,50 +60,15 @@ listview {
     padding: 2px 0px 0px;
 }
 
-scrollbar {
-    background-color: #373b41;
-    handle-color: #969896;
-}
-
 element {
     border: 0;
     padding: 2px;
+    spacing: 5;
 }
 
-element.normal.normal {
-    background-color: @normal-background;
-}
-
-element.normal.urgent {
-    background-color: @urgent-background;
-}
-
-element.normal.active {
-    background-color: @active-background;
-}
-
-element.selected.normal {
-    background-color: @selected-normal-background;
-}
-
-element.selected.urgent {
-    background-color: @selected-urgent-background;
-}
-
-element.selected.active {
-    background-color: @selected-active-background;
-}
-
-element.alternate.normal {
-    background-color: @alternate-normal-background;
-}
-
-element.alternate.urgent {
-    background-color: @alternate-urgent-background;
-}
-
-element.alternate.active {
-    background-color: @alternate-active-background;
+element.selected {
+    border: 2;
+    border-color: @selected-normal-background;
 }
 
 scrollbar {
@@ -105,6 +76,8 @@ scrollbar {
     border: 0;
     handle-width: 8px;
     padding: 0;
+    background-color: #373b41;
+    handle-color: #969896;
 }
 
 sidebar {
