@@ -42,10 +42,10 @@ set $right l
 set $term footclient
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu "rofi -show run -modi run,drun,ssh"
+set $menu "rofi -show run -modi run,drun,window,ssh"
 set $lock_cmd "~/.config/sway/scripts/lock"
 
-font pango:Hack 10px
+font pango:Hack 0px
 
 ### Output configuration
 #
@@ -137,6 +137,7 @@ input "1739:0:Synaptics_TM3418-002" {
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
+    bindsym Mod1+Tab exec rofi -show window -modi window
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
@@ -254,6 +255,7 @@ for_window [app_id="firefox*" title="Pushbullet – Mozilla Firefox"] floating e
 for_window [app_id="firefox*" title="About Mozilla Firefox"] floating enable
 for_window [app_id="firefox*" title="Developer Tools*"] floating enable
 for_window [app_id="mpv"] floating enable
+for_window [class=".*"] title_format "<span padding=0> </span>"
 
 # Brave, chrome, chromium
 for_window [title="Picture-in-picture"] floating enable
@@ -271,6 +273,8 @@ include ~/.config/sway/config.d/*
 
 focus_follows_mouse no
 workspace_layout tabbed
+titlebar_border_thickness 0
+titlebar_padding 0
 hide_edge_borders smart_no_gaps
 default_border pixel 4
 default_floating_border pixel 4

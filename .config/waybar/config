@@ -158,9 +158,9 @@
         "spacing": 8
     },
     "wlr/taskbar": {
-        "format": "{icon} {app_id}",
-        "icon-size": 14,
-        "tooltip-format": "{title}",
+        "format": "{icon}",
+        "icon-size": 16,
+        "tooltip-format": "{title:.60}",
         "on-click": "activate",
         "on-click-right": "minimize-raise",
         "on-click-middle": "close"
