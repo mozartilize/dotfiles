@@ -247,6 +247,8 @@ bindsym $mod+r mode "resize"
 
 # Mako
 bindsym $mod+Shift+d exec makoctl dismiss -a
+bindsym Ctrl+Space exec echo 'daklak_toggle' | socat - /tmp/daklak.sock
+bindsym Alt+Shift+c exec cliphist list | bemenu -l 5 | cliphist decode | wl-copy
 
 for_window [app_id="firefox*" title="Pushbullet"] floating enable
 for_window [app_id="firefox*" title="Firefox — Sharing Indicator"] floating enable
@@ -293,3 +295,5 @@ exec /usr/lib/geoclue-2.0/demos/agent
 exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
 exec gammastep-indicator
 exec foot -s
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store

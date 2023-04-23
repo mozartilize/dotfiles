@@ -67,6 +67,9 @@ map <C-\> :NERDTreeToggle<CR>
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
+silent exe '!echo daklak_off | socat - /tmp/daklak.sock'
+autocmd InsertLeave * silent exe '!echo daklak_off | socat - /tmp/daklak.sock'
+
 set wildignore+=*/node_modules/*     " MacOSX/Linux
 
 lua << EOF
