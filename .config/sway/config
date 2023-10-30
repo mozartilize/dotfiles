@@ -248,7 +248,7 @@ bindsym $mod+r mode "resize"
 # Mako
 bindsym $mod+Shift+d exec makoctl dismiss -a
 bindsym Ctrl+Space exec echo 'daklak_toggle' | socat - /tmp/daklak.sock
-bindsym Alt+Shift+c exec cliphist list | bemenu -l 5 | cliphist decode | wl-copy
+bindsym Alt+Shift+c exec cliphist list | BEMENU_RENDERERS=/usr/lib/bemenu bemenu -l 5 | cliphist decode | wl-copy
 
 for_window [app_id="firefox*" title="Pushbullet"] floating enable
 for_window [app_id="firefox*" title="Firefox — Sharing Indicator"] floating enable
