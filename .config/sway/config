@@ -284,7 +284,7 @@ smart_borders no_gaps
 smart_gaps on
 gaps inner 15
 
-seat seat0 xcursor_theme Bibata-Modern-Ice 22
+#seat seat0 xcursor_theme Bibata-Modern-Ice 22
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK DOCKER_HOST
 exec hash dbus-update-activation-environment 2>/dev/null && \
