@@ -1,5 +1,9 @@
 call plug#begin('~/.vim/plugged')
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -10,13 +14,15 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'joshdick/onedark.vim'
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nathanmsmith/nvim-ale-diagnostic'
+Plug 'ggandor/leap.nvim'
+"Plug 'justinmk/vim-sneak'
 call plug#end()
 
 set bg=dark
@@ -29,7 +35,7 @@ set signcolumn=yes
 set autoindent
 set smartindent
 
-" Search as you type, highlight results
+" Search as ycu type, highlight results
 set incsearch
 set showmatch
 set hlsearch
@@ -47,6 +53,8 @@ let g:onedark_termcolors=256
 
 let g:loaded_python_provider = 0 " disable python2
 let g:loaded_python3_provider = 0 " disable python3
+let g:loaded_perl_provider = 0
+let g:loaded_node_provider = 0
 " let g:python3_host_prog = '/usr/bin/python3'
 
 let g:airline#extensions#ale#enabled = 1
@@ -62,10 +70,6 @@ inoremap <C-c> <ESC>
 imap <C-k> <esc>O
 imap <C-j> <esc>o
 nnoremap Q <Nop>
-map <C-\> :NERDTreeToggle<CR>
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 silent exe '!echo daklak_off | socat - /tmp/daklak.sock'
 autocmd InsertLeave * silent exe '!echo daklak_off | socat - /tmp/daklak.sock'
@@ -73,6 +77,16 @@ autocmd InsertLeave * silent exe '!echo daklak_off | socat - /tmp/daklak.sock'
 set wildignore+=*/node_modules/*     " MacOSX/Linux
 
 lua << EOF
+-- load lua/init.lua
+require('init')
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -100,7 +114,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
