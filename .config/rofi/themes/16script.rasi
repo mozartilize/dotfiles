@@ -26,7 +26,7 @@
     border-color: #c5c8c6;
     spacing: 0;
     color: @foreground;
-    font: "monospace 10";
+    font: "monospace 9";
 }
 
 window {

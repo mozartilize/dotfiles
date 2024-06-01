@@ -6,6 +6,8 @@
 	"installed_packages":
 	[
 		"A File Icon",
+		"AdvancedNewFile",
+		"Catppuccin color schemes",
 		"Color Highlighter",
 		"Dockerfile Syntax Highlighting",
 		"Formatter",
@@ -16,10 +18,12 @@
 		"LSP",
 		"LSP-pylsp",
 		"LSP-pyright",
+		"LSP-rust-analyzer",
 		"Meson",
 		"nginx",
 		"Origami",
 		"Package Control",
+		"Terraform",
 		"TOML",
 		"Vue Syntax Highlight",
 	],

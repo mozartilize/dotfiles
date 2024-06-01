@@ -291,8 +291,9 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 exec xrdb -load ~/.Xresources
+exec mullvad connect
 exec /usr/lib/geoclue-2.0/demos/agent
-exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
+exec /usr/bin/lxqt-policykit-agent
 exec gammastep-indicator
 exec foot -s
 exec wl-paste --type text --watch cliphist store

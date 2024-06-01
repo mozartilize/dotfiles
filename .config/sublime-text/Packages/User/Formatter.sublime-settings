@@ -1,0 +1,16 @@
+// Do NOT edit anything in the left-hand pane.
+// Pick up items you need, just make sure to maintain the structure.
+{
+    "debug": false,
+    "formatters": {
+        "jsonmax": {
+            "disable": false,
+            "syntaxes": ["json"],
+        },
+        "prettier": {
+            "disable": false,
+            "syntaxes": ["css", "scss", "less", "js", "jsx", "json", "html", "graphql", "markdown", "tsx", "vue", "yaml"],
+            "executable_path": ["/home/mozart/.yarn/bin/prettier"],
+        },
+    }
+}

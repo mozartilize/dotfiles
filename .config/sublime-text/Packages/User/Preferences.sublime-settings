@@ -3,7 +3,7 @@
 	[
 		"Vintage",
 	],
-	"font_face": "Liberation Mono",
+	"font_face": "Hack Nerd Font Mono",
 	"font_size": 9,
 	"highlight_line": true,
 	"line_padding_top": 3,
@@ -15,9 +15,9 @@
 	"trim_trailing_white_space_on_save": "not_on_caret",
 	"hardware_acceleration": "opengl",
 	"theme": "gruvbox.sublime-theme",
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium).sublime-color-scheme",
+	"color_scheme": "Catppuccin Mocha.sublime-color-scheme",
 	"gruvbox_sidebar_compact": true,
-	"gruvbox_sidebar_font_size_14": true,
+	"gruvbox_sidebar_font_size_13": true,
 	"gruvbox_tabs_xxs": true,
 	"gruvbox_tabs_font_size_12": true,
 	"gruvbox_panel_xxs": true,
@@ -29,4 +29,7 @@
 	"gruvbox_buttons_font_size_12": true,
 	"gruvbox_iconset_thick": true,
 	"gruvbox_command_palette_compact": true,
+	"animation_enabled": false,
+	"index_files": false,
+	"rulers": [[80, "solid", 2]],
 }

@@ -105,8 +105,8 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": "<span line_height='1.5' background='#f0c674'> 直 </span> {essid} ({signalStrength}%) ", // Icon: wifi
-        "format-ethernet": "<span line_height='1.5' background='#f0c674'>   </span> {ifname}: {ipaddr}/{cidr} ", // Icon: ethernet
+        "format-wifi": "<span line_height='1.5' background='#f0c674'> 󰖩 </span> {essid} ({signalStrength}%) ", // Icon: wifi
+        "format-ethernet": "<span line_height='1.5' background='#f0c674'> 󰈀  </span> {ifname}: {ipaddr}/{cidr} ", // Icon: ethernet
         "format-disconnected": "<span line_height='1.5' background='#f0c674'> ⚠  <span> Disconnected ",
         "tooltip-format": "{ifname}: {ipaddr}"
     },
@@ -125,15 +125,15 @@
         "scroll-step": 2,
         "format": "<span line_height='1.5' background='#de935f'> {icon} </span> {volume}% ",
         "format-bluetooth": "<span line_height='1.5' background='#de935f'> {icon} </span> {volume}% ",
-        "format-muted": "<span line_height='1.5' background='#de935f'> 婢 </span> 0% ",
+        "format-muted": "<span line_height='1.5' background='#de935f'> 󰝟 </span> 0% ",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
-            "headset": "",
-            "phone": "�",
+            "headset": "",
+            "phone": "󰏳",
             "portable": "",
             "car": "",
-            "default": ["", "墳", ""]
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
@@ -158,18 +158,19 @@
         "spacing": 8
     },
     "wlr/taskbar": {
-        "format": "{icon}",
+        "format": "{short_state}{icon}",
         "icon-size": 16,
         "tooltip-format": "{title:.60}",
         "on-click": "activate",
         "on-click-right": "minimize-raise",
-        "on-click-middle": "close"
+        "on-click-middle": "close",
+        "ignore-list": ["(.*) - Firefox Developer Edition Private Browsing"]
     },
     "idle_inhibitor": {
         "format": " {icon} ",
         "format-icons": {
-            "activated": " ",
-            "deactivated": " "
+            "activated": " ",
+            "deactivated": " "
         }
     },
     "custom/notification": {
