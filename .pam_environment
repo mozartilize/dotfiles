@@ -1,4 +1,0 @@
-PYENV_ROOT DEFAULT=@{HOME}/.pyenv
-PATH DEFAULT=@{HOME}/.poetry/bin:@{HOME}/.yarn/bin:${PYENV_ROOT}/bin:${PATH}
-EDITOR DEFAULT=nvim
-SSH_AUTH_SOCK DEFAULT=${XDG_RUNTIME_DIR}/ssh-agent.socket
